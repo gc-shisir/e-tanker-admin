@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+  <link
+  rel="stylesheet"
+  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+  type="text/css"
+  />
+  <title>E-Tanker | Dashboard</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="dashboard.html">Welcome admin</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto mr-auto text-center">
+        <li class="nav-item active">
+          <a class="nav-link active" href="suppliers.html">Suppliers</span></a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="customers.html">Customers</a>
+        </li>
+      </ul>
+      <form action="" class="logout-form text-center">
+        <button class="btn btn-transparent logout-button border-primary text-white " type="submit">Logout</button>
+      </form>
+    </div>
+    </div>
+  </nav>
+
+  <!-- Map -->
+  <div id='map' style='width: 100vw; height: 90vh;'></div>
+
+  <script>
+    const latitude=localStorage.getItem('latitude');
+    const longitude=localStorage.getItem('longitude');
+    console.log(latitude,longitude);
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZ2Mtc2hpc2lyIiwiYSI6ImNra3RodDl2eDFhd3Uyc3FrdjhtbHkxd24ifQ.reSoFy53MFCsF3vI4zrC-w';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [longitude, latitude],
+      zoom: 14
+    });
+
+    var marker = new mapboxgl.Marker({color:'#ff0000'})
+    .setLngLat([longitude, latitude])
+    .addTo(map);
+
+    const nav = new mapboxgl.NavigationControl()
+    map.addControl(nav)
+    
+    //var directions = new MapboxDirections({
+      //accessToken: mapboxgl.accessToken
+    //})
+  
+    //map.addControl(directions, "top-left")
+  </script>
+
+
+  
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+      
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" 
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"
+       integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+
+	<script src="./js/config.js"></script>
+  <script src="./js/logout.js"></script>
+  <script src="./js/supplier.js"></script>
+  <script src="./js/tanker.js"></script>
+</body>
+</html>
+  
+</body>
+</html>

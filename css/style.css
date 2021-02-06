@@ -1,0 +1,79 @@
+:root{
+  --primary-color:#0A79DF;
+  --secondary-color:#333;
+}
+/* utility classes */
+d-none{
+  display:none;
+}
+
+/* for login form */
+
+.login-container{
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  height:100vh;
+  align-items: center;
+  justify-content:center;
+  background: #f4f4f4;
+}
+
+.login-form{
+  background:var(--primary-color) ;
+  color:#fff;
+  border:1px solid #f4f4f4;
+  border-radius:12px;
+  padding:20px 20px;
+}
+
+.login-button{
+  background: #0953C2;
+  color:#fff;
+  width:100%;
+  box-shadow: 0 0 0px 1px rgba(0,0,0,0.3);
+}
+
+.login-button:hover{
+  background:#fff;
+  color:#2475B0;
+  border:2px solid #f4f4f4;
+}
+
+/* Dashboard section */
+.dashboard-container .categories{ 
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories .supplier-category{
+  height:160px;
+  width:320px;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin:32px;
+  color:#fff;
+  border-radius: 8px;
+}
+
+.categories .customer-category{
+  height:160px;
+  width:320px;
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin:32px;
+  color:#fff;
+  border-radius:8px;
+}
+
+/* For map */
+#map{
+  height:100vh;
+  width:100vw;
+}
