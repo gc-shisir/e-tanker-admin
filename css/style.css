@@ -1,79 +1,129 @@
-:root{
-  --primary-color:#0A79DF;
-  --secondary-color:#333;
+:root {
+  --primary-color: #0466c8;
+  --secondary-color: #001845;
+  --medium-dark-color: #023e7d;
+  --medium-light-color: #33415c;
+  --light-color: #979dac;
+  --success-color: #23eb4f;
+  --delete-color: #e26d5c;
 }
 /* utility classes */
-d-none{
-  display:none;
+d-none {
+  display: none;
+}
+
+nav {
+  background: var(--secondary-color) !important;
+}
+
+.btn.btn-primary {
+  background: var(--primary-color) !important;
+}
+
+.btn.btn-secondary {
+  background: var(--secondary-color) !important;
+}
+
+.bg-dark {
+  background-color: var(--secondary-color);
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-light {
+  background: var(--light-color);
+}
+
+.bg-medium-light {
+  background: var(--medium-light-color);
+}
+
+.bg-success {
+  background: var(--success-color);
+}
+
+.bg-delete {
+  background: var(--delete-color);
 }
 
 /* for login form */
 
-.login-container{
-  display:flex;
-  flex-direction:column;
-  width:100%;
-  height:100vh;
+.login-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   background: #f4f4f4;
 }
 
-.login-form{
-  background:var(--primary-color) ;
-  color:#fff;
-  border:1px solid #f4f4f4;
-  border-radius:12px;
-  padding:20px 20px;
+.login-form {
+  background: var(--primary-color);
+  color: #fff;
+  border: 1px solid #f4f4f4;
+  border-radius: 12px;
+  padding: 20px 20px;
 }
 
-.login-button{
-  background: #0953C2;
-  color:#fff;
-  width:100%;
-  box-shadow: 0 0 0px 1px rgba(0,0,0,0.3);
+.login-button {
+  background: #0953c2;
+  color: #fff;
+  width: 100%;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.3);
 }
 
-.login-button:hover{
-  background:#fff;
-  color:#2475B0;
-  border:2px solid #f4f4f4;
+.login-button:hover {
+  background: #fff;
+  color: #2475b0;
+  border: 2px solid #f4f4f4;
 }
 
 /* Dashboard section */
-.dashboard-container .categories{ 
+.dashboard-container .categories {
   margin-top: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.categories .supplier-category{
-  height:160px;
-  width:320px;
+.btn-add-customer {
+  border-radius: 0;
+  background: var(--light-color);
+}
+.btn-add-supplier {
+  border-radius: 0;
+  background: var(--light-color);
+}
+
+.categories .supplier-category {
+  height: 160px;
+  width: 320px;
   background-color: var(--primary-color);
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
-  margin:32px;
-  color:#fff;
+  margin: 32px;
+  color: #fff;
   border-radius: 8px;
 }
 
-.categories .customer-category{
-  height:160px;
-  width:320px;
-  background-color: var(--secondary-color);
+.categories .customer-category {
+  height: 160px;
+  width: 320px;
+  background-color: var(--medium-light-color);
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
-  margin:32px;
-  color:#fff;
-  border-radius:8px;
+  margin: 32px;
+  color: #fff;
+  border-radius: 8px;
 }
 
 /* For map */
-#map{
-  height:100vh;
-  width:100vw;
+#map {
+  height: 100vh;
+  width: 100vw;
 }
