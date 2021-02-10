@@ -4,23 +4,32 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>E-Tanker | Login </title>
 	<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 	<div class="login-container">
 		<div class="container w-25 w-xm-100" >
-			<form class="login-form">
-					<div class="mb-3">
-						<label for="exampleInputEmail1" class="form-label">Email address</label>
-						<input type="email" class="form-control email" name="email" value="shisir@admin.com" id="exampleInputEmail1" aria-describedby="emailHelp">
+			<div class="login-form">
+					<div class="login-header">
+						<div class="icon">
+							<i class="fa fa-user fa-4x"></i>
+						</div>
+						<h3>Admin login</h3>
 					</div>
-					<div class="mb-3">
-						<label for="exampleInputPassword1" class="form-label">Password</label>
-						<input type="password" class="form-control password"  name="password" id="exampleInputPassword1" value="shisir@admin.com">
+					<div class="form">
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Email address</label>
+							<input type="email" class="form-control email" name="email" value="shisir@admin.com" id="exampleInputEmail1" aria-describedby="emailHelp">
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputPassword1" class="form-label">Password</label>
+							<input type="password" class="form-control password"  name="password" id="exampleInputPassword1" value="shisir@admin.com">
+						</div>
+						<button type="submit" class="btn login-button my-2" name="submit">Log In</button>
 					</div>
-					<button type="submit" class="btn login-button my-2" name="submit">Log In</button>
-			</form>
+			</div>
 		</div>
 	</div>
 

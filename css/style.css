@@ -61,11 +61,34 @@ nav {
 }
 
 .login-form {
-  background: var(--primary-color);
+  background: var(--medium-dark-color);
   color: #fff;
-  border: 1px solid #f4f4f4;
+  border: none;
   border-radius: 12px;
   padding: 20px 20px;
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.icon {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  color: var(--medium-dark-color);
+  background: white;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -75px;
+  margin-bottom: 14px;
 }
 
 .login-button {

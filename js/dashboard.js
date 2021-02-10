@@ -1,45 +1,47 @@
-const supplierCountSelector=document.querySelector('.supplier-count');
-const customerCountSelector=document.querySelector('.customer-count');
+const supplierCountSelector = document.querySelector(".supplier-count");
+const customerCountSelector = document.querySelector(".customer-count");
 
 // const supplierCount=localStorage.getItem('supplierCount');
 // const customerCount=localStorage.getItem('customerCount');
 
-function getSupplierCount(){
+function getSupplierCount() {
   rowInit = 0;
-    db.collection("suppliers")
-      .get()
-      .then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-          supplierData = doc.data();
-          // console.log("Supplier id:",doc.id)
-          ++rowInit;
-          
-        });
-        console.log(rowInit);
-        supplierCountSelector.textContent=rowInit;
+  supplierDataArr = [];
+  db.collection("suppliers")
+    .get()
+    .then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        supplierData = doc.data();
+        supplierDataArr.push(supplierData);
+        ++rowInit;
       });
+      console.log(rowInit);
+      supplierCountSelector.textContent = rowInit;
+      console.log(supplierDataArr);
+      localStorage.setItem("supplierData", supplierDataArr);
+    });
 }
 
-function getCustomerCount(){
+function getCustomerCount() {
   rowInit = 0;
-    db.collection("customers")
-      .get()
-      .then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-          supplierData = doc.data();
-          // console.log("Supplier id:",doc.id)
-          ++rowInit;         
-        });
-        console.log(rowInit);
-        customerCountSelector.textContent=rowInit;
+  customerDataArr = [];
+  db.collection("customers")
+    .get()
+    .then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        customerData = doc.data();
+        customerDataArr.push(customerData);
+        ++rowInit;
       });
+      console.log(rowInit);
+      customerCountSelector.textContent = rowInit;
+      console.log(customerDataArr);
+      localStorage.setItem("customerData", customerDataArr);
+    });
 }
 
 getSupplierCount();
 getCustomerCount();
-
-
- 
 
 // supplierCountSelector.textContent=supplierCount;
 // customerCountSelector.textContent=customerCount;
