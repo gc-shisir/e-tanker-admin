@@ -1,29 +1,35 @@
+const errorSection = document.querySelector(".error-message");
+
 // Login
-document.querySelector('.login-button').addEventListener('click',(e)=>{
+document.querySelector(".login-button").addEventListener("click", (e) => {
   e.preventDefault();
 
-  const email=document.querySelector('.email').value;
-  const password=document.querySelector('.password').value;
-  console.log(email,password);
-  
-  auth.signInWithEmailAndPassword(email, password)
-  .then(function(cred){
-    console.log(cred);
-    window.location='dashboard.html'
-  })
-  .catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-    console.log(errorCode+":"+errorMessage);
-  });
-  
-});;
+  const email = document.querySelector(".email").value;
+  const password = document.querySelector(".password").value;
+  console.log(email, password);
+
+  auth
+    .signInWithEmailAndPassword(email, password)
+    .then(function (cred) {
+      console.log(cred);
+      window.location = "dashboard.html";
+    })
+    .catch(function (error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+      console.log(errorCode + ":" + errorMessage);
+      errorSection.textContent = "Either email or password did not match";
+      setTimeout(() => {
+        errorSection.textContent = "";
+      }, 3000);
+    });
+});
 
 console.log("login ends");
 
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     console.log(user);
     // User is signed in.

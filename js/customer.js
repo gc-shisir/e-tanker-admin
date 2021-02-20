@@ -17,7 +17,7 @@ function getCustomerData() {
         <td>${++rowInit}</td>
         <td>${customerData.name}</td>
         <td>${customerData.email}</td>
-        <td>${customerData.phone_number}</td>
+        <td>${customerData.phone}</td>
         <td>${customerData.address}</td>
         <td><button class="text-decoration-none btn bg-primary text-white  btnMap" 
           onclick="setLatitudeLongitude('${customerData.latitude}',
