@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" 
-    integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
-  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+  <title>E-Tanker | Dashboard</title>
   <link rel="stylesheet" href="./css/style.css">
-	<script src="./js/logout.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark">
@@ -19,10 +17,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto mr-auto text-center">
         <li class="nav-item active">
-          <a class="nav-link" href="suppliers.html">Suppliers</span></a>
+          <a class="nav-link active" href="suppliers.html">Suppliers</span></a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link active" href="customers.html">Customers</a>
+          <a class="nav-link" href="customers.html">Customers</a>
         </li>
       </ul>
       <form action="" class="logout-form text-center">
@@ -32,45 +30,28 @@
     </div>
   </nav>
 
-  <br><br>
-  
-  <!-- Supplier Section -->
-  <section id="tanker-section">
-    <div class="container">
-      <p class="h2">Customers</p>
-      <div class="add-buttons my-3 d-flex">
-        <div>
-          <a href="add-customer.html" class="btn px-3 btn-add-customer">Add Customer</a>
-        </div>
-      </div>
-      <div class="message text-white"></div>
-      <br>
-      <table class="table table-sm text-center">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone number</th>
-            <th scope="col">Address</th>
-            <th scope="col">Location</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody class="table-body">
-          <!-- <tr class="">
-            <td>0</td>
-            <td>shisir</td>
-            <td>gc@gc</td>
-            <td>25642</td>
-            <td>5</td>
-            <td><a href="map.html">View</a></td>
-            <td><a href="#" class="btn btn-primary"></a></td>
-          </tr> -->
-        </tbody>
-      </table>
+  <!-- Form section -->
+  <form action="" class="form customer-form container my-5">
+    <h3 class="mb-3">Update Customer</h3>
+    <div class="form-group my-2">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" class="form-control">
     </div>
-  </section>
+    <div class="form-group my-2">
+      <label for="name">Email</label>
+      <input type="email" name="email" disabled id="email" class="form-control">
+    </div>
+    <div class="form-group my-2">
+      <label for="name">Address</label>
+      <input type="text" name="address" id="address" class="form-control">
+    </div>
+    <div class="form-group my-2">
+      <label for="name">Contact Number</label>
+      <input type="text" name="contact" id="contact" class="form-control">
+    </div>
+    <input type="submit" value="Update" class='btn btn-primary my-2 px-4'>
+  </form>
+
   
 
   <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -94,15 +75,9 @@
 
 	<script src="./js/config.js"></script>
   <script src="./js/logout.js"></script>
-  <script src="./js/customer.js"></script>
-  <script src="./js/script.js"></script>
-
-  <script>
-    //data=document.querySelector('.dataset');
-    //console.log("data=",data.firstChild.innerHTML);
-    function click(id){
-      console.log("id is:"+ic)
-    }
-  </script>
+  <script src="./js/editCustomer.js"></script>
+</body>
+</html>
+  
 </body>
 </html>

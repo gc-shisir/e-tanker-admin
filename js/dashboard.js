@@ -5,38 +5,31 @@ const customerCountSelector = document.querySelector(".customer-count");
 // const customerCount=localStorage.getItem('customerCount');
 
 function getSupplierCount() {
-  rowInit = 0;
-  supplierDataArr = [];
+  supplierRowInit = 0;
   db.collection("suppliers")
     .get()
     .then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
         supplierData = doc.data();
-        supplierDataArr.push(supplierData);
-        ++rowInit;
+        ++supplierRowInit;
       });
-      console.log(rowInit);
-      supplierCountSelector.textContent = rowInit;
-      console.log(supplierDataArr);
-      localStorage.setItem("supplierData", supplierDataArr);
+      // console.log(supplierRowInit);
+      supplierCountSelector.textContent = supplierRowInit;
     });
 }
 
 function getCustomerCount() {
-  rowInit = 0;
-  customerDataArr = [];
+  customerRowInit = 0;
   db.collection("customers")
     .get()
     .then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
         customerData = doc.data();
-        customerDataArr.push(customerData);
-        ++rowInit;
+        console.log(customerData);
+        ++customerRowInit;
       });
-      console.log(rowInit);
-      customerCountSelector.textContent = rowInit;
-      console.log(customerDataArr);
-      localStorage.setItem("customerData", customerDataArr);
+      console.log(customerRowInit);
+      customerCountSelector.textContent = customerRowInit;
     });
 }
 

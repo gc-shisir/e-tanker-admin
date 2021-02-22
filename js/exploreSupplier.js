@@ -1,23 +1,27 @@
 let tableItems = document.querySelector(".table-body");
 const supplierInfo = document.querySelector(".info-group");
 
-const supplierId = localStorage.getItem("selectedSupplierId");
-const supplierName = localStorage.getItem("selectedSupplierName");
-const supplierCompanyName = localStorage.getItem("selectedSupplierCompanyName");
-const supplierEmail = localStorage.getItem("selectedSupplierEmail");
-const supplierContact = localStorage.getItem("selectedSupplierContact");
+// const supplierId = localStorage.getItem("selectedSupplierId");
+// const supplierName = localStorage.getItem("selectedSupplierName");
+// const supplierCompanyName = localStorage.getItem("selectedSupplierCompanyName");
+// const supplierEmail = localStorage.getItem("selectedSupplierEmail");
+// const supplierContact = localStorage.getItem("selectedSupplierContact");
+
+const selectedSupplier = JSON.parse(localStorage.getItem("selectedSupplier"));
 
 supplierInfo.innerHTML = `
-  <h3>${supplierCompanyName} (${supplierName})</h3>
-  <p>${supplierEmail !== "undefined" ? supplierEmail : ""}</p>
-  <p>${supplierContact !== "undefined" ? supplierContact : ""}</p>
+  <h3>${selectedSupplier.companyName} (${selectedSupplier.companyName})</h3>
+  <p>${selectedSupplier.email !== "undefined" ? selectedSupplier.email : ""}</p>
+  <p>${
+    selectedSupplier.contact !== "undefined" ? selectedSupplier.contact : ""
+  }</p>
 `;
 
 function getTanker() {
   let output = "";
   rowInit = 0;
   db.collection("suppliers")
-    .doc(supplierId)
+    .doc(selectedSupplier.id)
     .collection("tankers")
     .get()
     .then(function (querySnapshot) {

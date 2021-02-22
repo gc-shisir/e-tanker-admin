@@ -1,4 +1,5 @@
 const customerForm = document.querySelector(".customer-form");
+const message = document.querySelector(".message");
 
 function codeGenerator() {
   const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -55,6 +56,12 @@ async function addCustomer(e) {
     })
     .then(() => {
       console.log("Document successfully written!");
+      let message = {
+        msg: "Customer Added Successfully",
+        bg: "bg-success",
+      };
+      localStorage.setItem("message", JSON.stringify(message));
+      window.location.href = "customers.html";
     })
     .catch((error) => {
       console.error("Error writing document: ", error);
