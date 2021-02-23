@@ -10,7 +10,7 @@ const supplierInfo = document.querySelector(".info-group");
 const selectedSupplier = JSON.parse(localStorage.getItem("selectedSupplier"));
 
 supplierInfo.innerHTML = `
-  <h3>${selectedSupplier.companyName} (${selectedSupplier.companyName})</h3>
+  <h4>${selectedSupplier.companyName} (${selectedSupplier.name})</h4>
   <p>${selectedSupplier.email !== "undefined" ? selectedSupplier.email : ""}</p>
   <p>${
     selectedSupplier.contact !== "undefined" ? selectedSupplier.contact : ""
@@ -37,9 +37,10 @@ function getTanker() {
           <td>${supplierData.literCapacity}</td>
           <td>${supplierData.price}</td>
           <td>
-            <a class="btn explore-button bg-medium-light text-white" href="#">Explore</a>
-            <a class="btn explore-button bg-success text-white ml-1" href="#">Update</a>
-            <a class="btn explore-button bg-delete ml-1 text-white" href="#">Delete</a>
+            <button class="btn explore-button bg-medium-light text-white" onclick="getFeedbacks('${
+              supplierData.tankerNumber
+            }')">Feedback</button>
+            
           </td>
         </tr>
         `;
@@ -48,4 +49,18 @@ function getTanker() {
     });
 }
 
+function getFeedbacks(tankerNumber) {
+  db.collection("feedback")
+    .doc(selectedSupplier.id)
+    .collection(tankerNumber)
+    .get()
+    .then(function (querySnapshot) {
+      querySnapshot.forEach((doc) => {
+        feedbacks = doc.data();
+        console.log(feedbacks);
+      });
+    });
+}
+
 getTanker();
+// getFeedbacks();

@@ -7,7 +7,6 @@ function editSupplier() {
   const supplierEmail = document.querySelector("#email");
   const supplierLocation = document.querySelector("#location");
   const supplierContact = document.querySelector("#contact");
-  supplierName.value = "GC don";
 
   const supplierDetails = JSON.parse(localStorage.getItem("selectedSupplier"));
 

@@ -155,3 +155,16 @@ nav {
   height: 100vh;
   width: 100vw;
 }
+
+/* Supplier Details section */
+.supplier-details {
+  border: 2px solid var(--light-color);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 0.4rem;
+}
+
+div.citizenship,
+div.registration {
+  cursor: pointer;
+}
