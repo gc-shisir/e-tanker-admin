@@ -1,4 +1,4 @@
-const form = document.querySelector("form");
+const form = document.querySelector(".btn-update");
 const customerDetails = JSON.parse(localStorage.getItem("selectedCustomer"));
 
 function editCustomer() {
@@ -30,7 +30,13 @@ function updateDetails(e) {
       contact: contact,
     })
     .then(() => {
-      console.log("successfully updated");
+      // console.log("successfully updated");
+      let message = {
+        msg: "Customer Updated Successfully",
+        bg: "bg-success",
+      };
+      localStorage.setItem("message", JSON.stringify(message));
+      window.location = "customers.html";
     })
     .catch((err) => {
       console.log("Failed to updata data");
@@ -39,4 +45,4 @@ function updateDetails(e) {
 
 editCustomer();
 
-form.addEventListener("submit", updateDetails);
+form.addEventListener("click", updateDetails);

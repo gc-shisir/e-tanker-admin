@@ -37,7 +37,7 @@ function getCustomerData() {
           onclick="setLatitudeLongitude('${customerData.latitude}',
           '${customerData.longitude}')">View</button></td>
         <td>
-          <a href="#" class="btn bg-medium-light text-white ">Explore</a>
+          
           <a href="edit-customer.html" onclick="selectCustomer('${customerId}','${
           customerData.name
         }','${customerData.email}','${customerData.phone}','${
@@ -59,7 +59,7 @@ function setLatitudeLongitude(latitude, longitude) {
 }
 
 function deleteCustomer(customerId) {
-  let confirm = window.confirm("Do you want to delete the selected supplier?");
+  let confirm = window.confirm("Do you want to delete the selected customer?");
   if (confirm) {
     db.collection("customers")
       .doc(customerId)

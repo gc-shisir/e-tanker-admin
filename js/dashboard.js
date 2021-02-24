@@ -25,7 +25,7 @@ function getCustomerCount() {
     .then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
         customerData = doc.data();
-        console.log(customerData);
+        // console.log(customerData);
         ++customerRowInit;
       });
       console.log(customerRowInit);

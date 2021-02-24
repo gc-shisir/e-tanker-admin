@@ -11,7 +11,7 @@ document.querySelector(".login-button").addEventListener("click", (e) => {
   auth
     .signInWithEmailAndPassword(email, password)
     .then(function (cred) {
-      console.log(cred);
+      console.log(cred.user);
       window.location = "dashboard.html";
     })
     .catch(function (error) {

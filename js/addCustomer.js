@@ -44,10 +44,12 @@ async function addCustomer(e) {
   const email = document.querySelector("#email").value;
   const contact = document.querySelector("#contact").value;
   const address = document.querySelector("#address").value;
+  const id = Date.now();
+  console.log(id);
   await createUser(email, "123456");
   await db
     .collection("customers")
-    .doc("LA")
+    .doc()
     .set({
       name: name,
       email: email,

@@ -1,4 +1,17 @@
 const tableItems = document.querySelector(".table-body");
+const message = document.querySelector(".message");
+
+if (localStorage.getItem("message") !== null) {
+  console.log(localStorage.getItem("message"));
+  let messageBody = JSON.parse(localStorage.getItem("message"));
+  message.textContent = messageBody.msg;
+  message.classList.add(messageBody.bg);
+  setTimeout(() => {
+    message.textContent = "";
+    message.classList.remove(messageBody.bg);
+    localStorage.removeItem("message");
+  }, 3000);
+}
 
 function getSuppliers() {
   let output = "";
@@ -54,7 +67,12 @@ function deleteSupplier(supplierId) {
       .doc(supplierId)
       .delete()
       .then(() => {
-        console.log("Document successfully deleted!");
+        // console.log("Document successfully deleted!");
+        let message = {
+          msg: "Supplier Deleted Successfully",
+          bg: "bg-delete",
+        };
+        localStorage.setItem("message", JSON.stringify(message));
         window.location.href = "suppliers.html";
       })
       .catch((error) => {
