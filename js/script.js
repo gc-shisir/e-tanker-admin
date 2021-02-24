@@ -48,14 +48,14 @@
 // // phone_number: "9860687669"
 // // tanker_count: "4"
 
-const tableItem = document.querySelector(".table-body");
-tableItems.addEventListener("load", actions);
-// Supplier
-function actions() {
-  btnMapSelector = document.querySelector(".btnMap");
-  btnMapSelector.addEventListener("click", getLatitudeLongitude);
+// const tableItem = document.querySelector(".table-body");
+// tableItems.addEventListener("load", actions);
+// // Supplier
+// function actions() {
+//   btnMapSelector = document.querySelector(".btnMap");
+//   btnMapSelector.addEventListener("click", getLatitudeLongitude);
 
-  function getLatitudeLongitude(e) {
-    console.log(e.target);
-  }
-}
+//   function getLatitudeLongitude(e) {
+//     console.log(e.target);
+//   }
+// }

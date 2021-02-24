@@ -1,18 +1,39 @@
 const errorSection = document.querySelector(".error-message");
+let adminEmail;
+
+function getAdminDetails() {}
 
 // Login
-document.querySelector(".login-button").addEventListener("click", (e) => {
+document.querySelector(".login-button").addEventListener("click", async (e) => {
   e.preventDefault();
 
-  const email = document.querySelector(".email").value;
-  const password = document.querySelector(".password").value;
-  console.log(email, password);
+  const inputEmail = document.querySelector(".email").value;
+  const inputPassword = document.querySelector(".password").value;
 
-  auth
-    .signInWithEmailAndPassword(email, password)
+  await auth
+    .signInWithEmailAndPassword(inputEmail, inputPassword)
     .then(function (cred) {
-      console.log(cred.user);
-      window.location = "dashboard.html";
+      console.log("cred=", cred.user.uid);
+      db.collection("admins")
+        .get()
+        .then(function (querySnapshot) {
+          querySnapshot.forEach(function (doc) {
+            adminData = doc.data();
+            console.log("id", doc.id);
+            console.log(adminData);
+            // console.log("admin", adminEmail);
+            adminEmail = adminData.email;
+          });
+        });
+      if (inputEmail === adminEmail || "shisir@admin.com") {
+        window.location = "dashboard.html";
+      } else {
+        errorSection.textContent = "nothing email or password did not match";
+        setTimeout(() => {
+          errorSection.textContent = "";
+        }, 3000);
+      }
+      console.log(adminEmail, inputEmail);
     })
     .catch(function (error) {
       // Handle Errors here.
@@ -31,7 +52,7 @@ console.log("login ends");
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    console.log(user);
+    // console.log(user);
     // User is signed in.
     // var displayName = user.displayName;
     var email = user.email;

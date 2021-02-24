@@ -1,5 +1,9 @@
 let tableItems = document.querySelector(".table-body");
 const supplierInfo = document.querySelector(".info-group");
+const image = document.querySelector(".profile-img");
+const citizenship = document.querySelector(".citizenship");
+const registration = document.querySelector(".registration");
+console.log(image);
 
 // const supplierId = localStorage.getItem("selectedSupplierId");
 // const supplierName = localStorage.getItem("selectedSupplierName");
@@ -61,6 +65,131 @@ function getFeedbacks(tankerNumber) {
       });
     });
 }
+
+function getImages() {
+  const link = "Verification_details/" + selectedSupplier.id + "/photo";
+  console.log(link);
+  // Create a reference to the file we want to download
+  var starsRef = storageRef.child(link);
+
+  // Get the download URL
+  starsRef
+    .getDownloadURL()
+    .then((url) => {
+      console.log(url);
+      // Insert url into an <img> tag to "download"
+      image.src = url;
+    })
+    .catch((error) => {
+      // A full list of error codes is available at
+      // https://firebase.google.com/docs/storage/web/handle-errors
+      switch (error.code) {
+        case "storage/object-not-found":
+          // File doesn't exist
+          console.log("File doesnot exist");
+          break;
+        case "storage/unauthorized":
+          // User doesn't have permission to access the object
+          console.log("permission denied");
+          break;
+        case "storage/canceled":
+          // User canceled the upload
+          console.log("upload cancelled ");
+          break;
+
+        // ...
+
+        case "storage/unknown":
+          // Unknown error occurred, inspect the server response
+          console.log("storage unknown");
+          break;
+      }
+    });
+}
+function getCitizenship() {
+  const link = "Verification_details/" + selectedSupplier.id + "/citizenship";
+  console.log(link);
+  // Create a reference to the file we want to download
+  var starsRef = storageRef.child(link);
+
+  // Get the download URL
+  starsRef
+    .getDownloadURL()
+    .then((url) => {
+      console.log(url);
+      // Insert url into an <img> tag to "download"
+      citizenship.href = url;
+    })
+    .catch((error) => {
+      // A full list of error codes is available at
+      // https://firebase.google.com/docs/storage/web/handle-errors
+      switch (error.code) {
+        case "storage/object-not-found":
+          // File doesn't exist
+          console.log("File doesnot exist");
+          break;
+        case "storage/unauthorized":
+          // User doesn't have permission to access the object
+          console.log("permission denied");
+          break;
+        case "storage/canceled":
+          // User canceled the upload
+          console.log("upload cancelled ");
+          break;
+
+        // ...
+
+        case "storage/unknown":
+          // Unknown error occurred, inspect the server response
+          console.log("storage unknown");
+          break;
+      }
+    });
+}
+function getRegistration() {
+  const link = "Verification_details/" + selectedSupplier.id + "/registration";
+  console.log(link);
+  // Create a reference to the file we want to download
+  var starsRef = storageRef.child(link);
+
+  // Get the download URL
+  starsRef
+    .getDownloadURL()
+    .then((url) => {
+      console.log(url);
+      // Insert url into an <img> tag to "download"
+      registration.src = url;
+    })
+    .catch((error) => {
+      // A full list of error codes is available at
+      // https://firebase.google.com/docs/storage/web/handle-errors
+      switch (error.code) {
+        case "storage/object-not-found":
+          // File doesn't exist
+          console.log("File doesnot exist");
+          break;
+        case "storage/unauthorized":
+          // User doesn't have permission to access the object
+          console.log("permission denied");
+          break;
+        case "storage/canceled":
+          // User canceled the upload
+          console.log("upload cancelled ");
+          break;
+
+        // ...
+
+        case "storage/unknown":
+          // Unknown error occurred, inspect the server response
+          console.log("storage unknown");
+          break;
+      }
+    });
+}
+
+getImages();
+getCitizenship();
+getRegistration();
 
 getTanker();
 // getFeedbacks();
