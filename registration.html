@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document-Viewer</title>
+  <style>
+    embed{
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <embed class="doc" type="application/pdf" src="" >
+</body>
+<script>
+  document.querySelector('embed').src=localStorage.getItem('registrationUrl')+"#zoom=60";
+  // localStorage.setItem('registrationUrl','');
+</script>
+</html>

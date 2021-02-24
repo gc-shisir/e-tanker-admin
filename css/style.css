@@ -11,6 +11,7 @@
 /* utility classes */
 d-none {
   display: none;
+  background: #122c9e;
 }
 
 nav {
@@ -167,4 +168,14 @@ nav {
 div.citizenship,
 div.registration {
   cursor: pointer;
+}
+
+/* Feedback section */
+.feedback-container {
+  border: 1px solid #ccc !important;
+  padding: 10px;
+}
+
+p.feedback {
+  font-size: 325px;
 }

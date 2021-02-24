@@ -1,9 +1,11 @@
 let tableItems = document.querySelector(".table-body");
 const supplierInfo = document.querySelector(".info-group");
 const image = document.querySelector(".profile-img");
-const citizenship = document.querySelector(".citizenship");
-const registration = document.querySelector(".registration");
-console.log(image);
+const citizenshipBtn = document.querySelector(".citizenshipBtn");
+const registrationBtn = document.querySelector(".registrationBtn");
+const feedbackContainer = document.querySelector(".feedback-container");
+console.log(feedbackContainer);
+// console.log(citizenship);
 
 // const supplierId = localStorage.getItem("selectedSupplierId");
 // const supplierName = localStorage.getItem("selectedSupplierName");
@@ -41,7 +43,7 @@ function getTanker() {
           <td>${supplierData.literCapacity}</td>
           <td>${supplierData.price}</td>
           <td>
-            <button class="btn explore-button bg-medium-light text-white" onclick="getFeedbacks('${
+            <button class="btn explore-button bg-medium-light text-white" data-toggle="modal" data-target="#feedback-section" onclick="getFeedbacks('${
               supplierData.tankerNumber
             }')">Feedback</button>
             
@@ -54,6 +56,7 @@ function getTanker() {
 }
 
 function getFeedbacks(tankerNumber) {
+  let output = "";
   db.collection("feedback")
     .doc(selectedSupplier.id)
     .collection(tankerNumber)
@@ -62,7 +65,20 @@ function getFeedbacks(tankerNumber) {
       querySnapshot.forEach((doc) => {
         feedbacks = doc.data();
         console.log(feedbacks);
+        output += `
+          <div class="modal-body>
+            <p class="feedback bg-light px-2 mx-2">
+              ${feedbacks.feedback}
+            </p>
+            <div class=" mt-2 pt-2 d-flex justify-content-between">
+              <p><strong>Feedback by:</strong>${feedbacks.feedbackBy}</p>
+              <p><strong>Rating : </strong class="text-primary">${feedbacks.rating}/5</p>
+            </div>
+            <i class="">Date: ${feedbacks.deliveredDate}</i>
+          </div><hr>
+        `;
       });
+      document.querySelector(".feedback-container").innerHTML = output;
     });
 }
 
@@ -118,7 +134,7 @@ function getCitizenship() {
     .then((url) => {
       console.log(url);
       // Insert url into an <img> tag to "download"
-      citizenship.href = url;
+      localStorage.setItem("citizenshipUrl", url);
     })
     .catch((error) => {
       // A full list of error codes is available at
@@ -155,10 +171,10 @@ function getRegistration() {
   // Get the download URL
   starsRef
     .getDownloadURL()
-    .then((url) => {
-      console.log(url);
+    .then((regUrl) => {
+      // console.log(url);
       // Insert url into an <img> tag to "download"
-      registration.src = url;
+      localStorage.setItem("registrationUrl", regUrl);
     })
     .catch((error) => {
       // A full list of error codes is available at
@@ -188,8 +204,8 @@ function getRegistration() {
 }
 
 getImages();
-getCitizenship();
-getRegistration();
-
 getTanker();
 // getFeedbacks();
+
+citizenshipBtn.addEventListener("click", getCitizenship());
+registrationBtn.addEventListener("click", getRegistration());
